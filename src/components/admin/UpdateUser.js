@@ -3,7 +3,7 @@ import React, { Fragment, useState, useEffect } from 'react'
 import MetaData from '../layout/MetaData'
 import Sidebar from './Sidebar'
 
-import { useAlert } from 'react-alert'
+// from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateUser, getUserDetails, clearErrors } from '../../actions/userActions'
 import { UPDATE_USER_RESET } from '../../constants/userConstants'
@@ -14,7 +14,7 @@ const UpdateUser = ({ history, match }) => {
     const [email, setEmail] = useState('')
     const [role, setRole] = useState('')
 
-    const alert = useAlert();
+    //
     const dispatch = useDispatch();
 
     const { error, isUpdated } = useSelector(state => state.user);
@@ -34,12 +34,12 @@ const UpdateUser = ({ history, match }) => {
         }
 
         if (error) {
-            alert.error(error);
+            //(error);
             dispatch(clearErrors());
         }
 
         if (isUpdated) {
-            alert.success('User updated successfully')
+            //
 
             history.push('/admin/users')
 

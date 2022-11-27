@@ -3,7 +3,7 @@ import React, { Fragment, useEffect } from 'react'
 import MetaData from '../layout/MetaData'
 import CheckoutSteps from './CheckoutSteps'
 
-import { useAlert } from 'react-alert'
+// from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
 import { createOrder, clearErrors } from '../../actions/orderActions'
 
@@ -24,7 +24,7 @@ const options = {
 
 const Payment = ({ history }) => {
 
-    const alert = useAlert();
+    //
     const stripe = useStripe();
     const elements = useElements();
     const dispatch = useDispatch();
@@ -36,7 +36,7 @@ const Payment = ({ history }) => {
     useEffect(() => {
 
         if (error) {
-            alert.error(error)
+            //(error)
             dispatch(clearErrors())
         }
 
@@ -94,7 +94,7 @@ const Payment = ({ history }) => {
             });
 
             if (result.error) {
-                alert.error(result.error.message);
+                //(result.error.message);
                 document.querySelector('#pay_btn').disabled = false;
             } else {
 
@@ -110,14 +110,14 @@ const Payment = ({ history }) => {
 
                     history.push('/success')
                 } else {
-                    alert.error('There is some issue while payment processing')
+                    //('There is some issue while payment processing')
                 }
             }
 
 
         } catch (error) {
             document.querySelector('#pay_btn').disabled = false;
-            alert.error(error.response.data.message)
+            //(error.response.data.message)
         }
     }
 

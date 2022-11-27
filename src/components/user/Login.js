@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import Loader from '../layout/Loader'
 import MetaData from '../layout/MetaData'
 
-import { useAlert } from 'react-alert'
+// from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
 import { login, clearErrors } from '../../actions/userActions'
 
@@ -13,7 +13,7 @@ const Login = ({ history, location }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const alert = useAlert();
+    //
     const dispatch = useDispatch();
 
     const { isAuthenticated, error, loading } = useSelector(state => state.auth);
@@ -27,7 +27,7 @@ const Login = ({ history, location }) => {
         }
 
         if (error) {
-            alert.error(error);
+            //(error);
             dispatch(clearErrors());
         }
 

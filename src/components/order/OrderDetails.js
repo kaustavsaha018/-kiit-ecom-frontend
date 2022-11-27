@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom'
 import MetaData from '../layout/MetaData'
 import Loader from '../layout/Loader'
 
-import { useAlert } from 'react-alert'
+// from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
 import { getOrderDetails, clearErrors } from '../../actions/orderActions'
 
 const OrderDetails = ({ match }) => {
 
-    const alert = useAlert();
+    //
     const dispatch = useDispatch();
 
     const { loading, error, order = {} } = useSelector(state => state.orderDetails)
@@ -20,10 +20,10 @@ const OrderDetails = ({ match }) => {
         dispatch(getOrderDetails(match.params.id));
 
         if (error) {
-            alert.error(error);
+            //(error);
             dispatch(clearErrors())
         }
-    }, [dispatch, alert, error, match.params.id])
+    }, [dispatch, error, match.params.id])
 
     const shippingDetails = shippingInfo && `${shippingInfo.address}, ${shippingInfo.city}, ${shippingInfo.postalCode}, ${shippingInfo.country}`
 

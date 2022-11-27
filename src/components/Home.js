@@ -8,7 +8,7 @@ import Product from './product/Product'
 import Loader from './layout/Loader'
 
 import { useDispatch, useSelector } from 'react-redux'
-import { useAlert } from 'react-alert';
+//
 import { getProducts } from '../actions/productActions'
 
 const { createSliderWithTooltip } = Slider;
@@ -36,7 +36,7 @@ const Home = ({ match }) => {
         'Home'
     ]
 
-    const alert = useAlert();
+    //
     const dispatch = useDispatch();
 
     const { loading, products, error, productsCount, resPerPage, filteredProductsCount } = useSelector(state => state.products)
@@ -45,7 +45,7 @@ const Home = ({ match }) => {
 
     useEffect(() => {
         if (error) {
-            return alert.error(error)
+            return //(error)
         }
 
         dispatch(getProducts(keyword, currentPage, price, category, rating));

@@ -6,14 +6,14 @@ import MetaData from '../layout/MetaData'
 import Loader from '../layout/Loader'
 import Sidebar from './Sidebar'
 
-import { useAlert } from 'react-alert'
+// from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAdminProducts, deleteProduct, clearErrors } from '../../actions/productActions'
 import { DELETE_PRODUCT_RESET } from '../../constants/productConstants'
 
 const ProductsList = ({ history }) => {
 
-    const alert = useAlert();
+    //
     const dispatch = useDispatch();
 
     const { loading, error, products } = useSelector(state => state.products);
@@ -23,12 +23,12 @@ const ProductsList = ({ history }) => {
         dispatch(getAdminProducts());
 
         if (error) {
-            alert.error(error);
+            //(error);
             dispatch(clearErrors())
         }
 
         if (deleteError) {
-            alert.error(deleteError);
+            //(deleteError);
             dispatch(clearErrors())
         }
 

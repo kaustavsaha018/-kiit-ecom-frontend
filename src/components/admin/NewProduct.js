@@ -3,7 +3,7 @@ import React, { Fragment, useState, useEffect } from 'react'
 import MetaData from '../layout/MetaData'
 import Sidebar from './Sidebar'
 
-import { useAlert } from 'react-alert'
+// from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
 import { newProduct, clearErrors } from '../../actions/productActions'
 import { NEW_PRODUCT_RESET } from '../../constants/productConstants'
@@ -34,7 +34,7 @@ const NewProduct = ({ history }) => {
         'Home'
     ]
 
-    const alert = useAlert();
+    //
     const dispatch = useDispatch();
 
     const { loading, error, success } = useSelector(state => state.newProduct);
@@ -42,7 +42,7 @@ const NewProduct = ({ history }) => {
     useEffect(() => {
 
         if (error) {
-            alert.error(error);
+            //(error);
             dispatch(clearErrors())
         }
 

@@ -5,7 +5,7 @@ import MetaData from '../layout/MetaData'
 import Loader from '../layout/Loader'
 import Sidebar from './Sidebar'
 
-import { useAlert } from 'react-alert'
+// from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
 import { getProductReviews, deleteReview, clearErrors } from '../../actions/productActions'
 import { DELETE_REVIEW_RESET } from '../../constants/productConstants'
@@ -14,7 +14,7 @@ const ProductReviews = () => {
 
     const [productId, setProductId] = useState('')
 
-    const alert = useAlert();
+    //
     const dispatch = useDispatch();
 
     const { error, reviews } = useSelector(state => state.productReviews);
@@ -23,12 +23,12 @@ const ProductReviews = () => {
     useEffect(() => {
 
         if (error) {
-            alert.error(error);
+            //(error);
             dispatch(clearErrors())
         }
 
         if (deleteError) {
-            alert.error(deleteError);
+            //(deleteError);
             dispatch(clearErrors())
         }
 

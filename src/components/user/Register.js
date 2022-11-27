@@ -2,7 +2,7 @@ import React, { Fragment, useState, useEffect } from 'react'
 
 import MetaData from '../layout/MetaData'
 
-import { useAlert } from 'react-alert'
+// from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
 import { register, clearErrors } from '../../actions/userActions'
 
@@ -19,7 +19,7 @@ const Register = ({ history }) => {
     const [avatar, setAvatar] = useState('')
     const [avatarPreview, setAvatarPreview] = useState('/images/default_avatar.jpg')
 
-    const alert = useAlert();
+    //
     const dispatch = useDispatch();
 
     const { isAuthenticated, error, loading } = useSelector(state => state.auth);
@@ -31,7 +31,7 @@ const Register = ({ history }) => {
         }
 
         if (error) {
-            alert.error(error);
+            //(error);
             dispatch(clearErrors());
         }
 

@@ -5,7 +5,7 @@ import Loader from '../layout/Loader'
 import MetaData from '../layout/MetaData'
 import ListReviews from '../review/ListReviews'
 
-import { useAlert } from 'react-alert'
+// from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
 import { getProductDetails, newReview, clearErrors } from '../../actions/productActions'
 import { addItemToCart } from '../../actions/cartActions'
@@ -18,7 +18,7 @@ const ProductDetails = ({ match }) => {
     const [comment, setComment] = useState('');
 
     const dispatch = useDispatch();
-    const alert = useAlert();
+    //
 
     const { loading, error, product } = useSelector(state => state.productDetails)
     const { user } = useSelector(state => state.auth)
@@ -28,12 +28,12 @@ const ProductDetails = ({ match }) => {
         dispatch(getProductDetails(match.params.id))
 
         if (error) {
-            alert.error(error);
+            //(error);
             dispatch(clearErrors())
         }
 
         if (reviewError) {
-            alert.error(reviewError);
+            //(reviewError);
             dispatch(clearErrors())
         }
 

@@ -2,7 +2,7 @@ import React, { Fragment, useState, useEffect } from 'react'
 
 import MetaData from '../layout/MetaData'
 
-import { useAlert } from 'react-alert'
+// from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
 import { resetPassword, clearErrors } from '../../actions/userActions'
 
@@ -11,7 +11,7 @@ const NewPassword = ({ history, match }) => {
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
 
-    const alert = useAlert();
+    //
     const dispatch = useDispatch();
 
     const { error, success } = useSelector(state => state.forgotPassword)
@@ -19,7 +19,7 @@ const NewPassword = ({ history, match }) => {
     useEffect(() => {
 
         if (error) {
-            alert.error(error);
+            //(error);
             dispatch(clearErrors());
         }
 
@@ -28,7 +28,7 @@ const NewPassword = ({ history, match }) => {
             history.push('/login')
         }
 
-    }, [dispatch, alert, error, success, history])
+    }, [dispatch, error, success, history])
 
     const submitHandler = (e) => {
         e.preventDefault();

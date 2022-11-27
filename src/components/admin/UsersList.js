@@ -6,14 +6,14 @@ import MetaData from '../layout/MetaData'
 import Loader from '../layout/Loader'
 import Sidebar from './Sidebar'
 
-import { useAlert } from 'react-alert'
+// from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
 import { allUsers, deleteUser, clearErrors } from '../../actions/userActions'
 import { DELETE_USER_RESET } from '../../constants/userConstants'
 
 const UsersList = ({ history }) => {
 
-    const alert = useAlert();
+    //
     const dispatch = useDispatch();
 
     const { loading, error, users } = useSelector(state => state.allUsers);
@@ -23,7 +23,7 @@ const UsersList = ({ history }) => {
         dispatch(allUsers());
 
         if (error) {
-            alert.error(error);
+            //(error);
             dispatch(clearErrors())
         }
 
@@ -33,7 +33,7 @@ const UsersList = ({ history }) => {
             dispatch({ type: DELETE_USER_RESET })
         }
 
-    }, [dispatch, alert, error, isDeleted, history])
+    }, [dispatch, error, isDeleted, history])
 
     const deleteUserHandler = (id) => {
         dispatch(deleteUser(id))

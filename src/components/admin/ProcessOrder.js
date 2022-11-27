@@ -5,7 +5,7 @@ import MetaData from '../layout/MetaData'
 import Loader from '../layout/Loader'
 import Sidebar from './Sidebar'
 
-import { useAlert } from 'react-alert'
+// from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
 import { getOrderDetails, updateOrder, clearErrors } from '../../actions/orderActions'
 import { UPDATE_ORDER_RESET } from '../../constants/orderConstants'
@@ -14,7 +14,7 @@ const ProcessOrder = ({ match }) => {
 
     const [status, setStatus] = useState('');
 
-    const alert = useAlert();
+    //
     const dispatch = useDispatch();
 
     const { loading, order = {} } = useSelector(state => state.orderDetails)
@@ -28,7 +28,7 @@ const ProcessOrder = ({ match }) => {
         dispatch(getOrderDetails(orderId))
 
         if (error) {
-            alert.error(error);
+            //(error);
             dispatch(clearErrors())
         }
 

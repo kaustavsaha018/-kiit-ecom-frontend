@@ -6,14 +6,14 @@ import MetaData from '../layout/MetaData'
 import Loader from '../layout/Loader'
 import Sidebar from './Sidebar'
 
-import { useAlert } from 'react-alert'
+// from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
 import { allOrders, deleteOrder, clearErrors } from '../../actions/orderActions'
 import { DELETE_ORDER_RESET } from '../../constants/orderConstants'
 
 const OrdersList = ({ history }) => {
 
-    const alert = useAlert();
+    //
     const dispatch = useDispatch();
 
     const { loading, error, orders } = useSelector(state => state.allOrders);
@@ -23,7 +23,7 @@ const OrdersList = ({ history }) => {
         dispatch(allOrders());
 
         if (error) {
-            alert.error(error);
+            //(error);
             dispatch(clearErrors())
         }
 
@@ -33,7 +33,7 @@ const OrdersList = ({ history }) => {
             dispatch({ type: DELETE_ORDER_RESET })
         }
 
-    }, [dispatch, alert, error, isDeleted, history])
+    }, [dispatch, error, isDeleted, history])
 
     const deleteOrderHandler = (id) => {
         dispatch(deleteOrder(id))

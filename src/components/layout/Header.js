@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { Route, Link } from 'react-router-dom'
 
 import { useDispatch, useSelector } from 'react-redux'
-import { useAlert } from 'react-alert'
+// from 'react-alert'
 import { logout } from '../../actions/userActions'
 
 import Search from './Search'
@@ -10,7 +10,7 @@ import Search from './Search'
 import '../../App.css'
 
 const Header = () => {
-    const alert = useAlert();
+    //
     const dispatch = useDispatch();
 
     const { user, loading } = useSelector(state => state.auth)

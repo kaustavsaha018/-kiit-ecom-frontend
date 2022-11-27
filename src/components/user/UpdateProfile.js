@@ -2,7 +2,7 @@ import React, { Fragment, useState, useEffect } from 'react'
 
 import MetaData from '../layout/MetaData'
 
-import { useAlert } from 'react-alert'
+// from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateProfile, loadUser, clearErrors } from '../../actions/userActions'
 import { UPDATE_PROFILE_RESET } from '../../constants/userConstants'
@@ -14,7 +14,7 @@ const UpdateProfile = ({ history }) => {
     const [avatar, setAvatar] = useState('')
     const [avatarPreview, setAvatarPreview] = useState('/images/default_avatar.jpg')
 
-    const alert = useAlert();
+    //
     const dispatch = useDispatch();
 
     const { user } = useSelector(state => state.auth);
@@ -29,12 +29,12 @@ const UpdateProfile = ({ history }) => {
         }
 
         if (error) {
-            alert.error(error);
+            //(error);
             dispatch(clearErrors());
         }
 
         if (isUpdated) {
-            alert.success('User updated successfully')
+            //
             dispatch(loadUser());
 
             history.push('/me')
@@ -44,7 +44,7 @@ const UpdateProfile = ({ history }) => {
             })
         }
 
-    }, [dispatch, alert, error, history, isUpdated])
+    }, [dispatch, error, history, isUpdated])
 
     const submitHandler = (e) => {
         e.preventDefault();
